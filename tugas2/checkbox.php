@@ -1,105 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fajar Ramadhan</title>
-    <style>
-        table, th, td{
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-    </style>
+  <title> Penggunaan Input Type Checkbox di HTML dan PHP</title>
+  <style>
+    #tbl,
+    #row,
+    #col {
+      border: 1px solid black;
+    }
+
+    #row {
+      text-align: start;
+    }
+  </style>
 </head>
+
 <body>
-    <h4> Dago Elektronik & Aksesoris</h4>
-    <hr>
-    <form action="<?php echo $_SERVER["PHP_SELF"];?>"method="post">
-        <table>
-            <tr>
-                <th> Nama Barang</th>
-                <th> Bonus </th>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" id="laptop" name="harga[]" value="10000">
-                    <label for="laptop">Laptop</label>
-                </td>
-                <td>
-                    <label for="">Mouse</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" id="handphone" name="harga[]" value="handphone">
-                    <label for="handphone">Handphone</label>
-                </td>
-                <td>
-                    <label for="">Handfree</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" id="tv" name="harga[]" value="tv">
-                    <label for="tv">LCD TV</label><br>
-                </td>
-                <td>
-                    <label for="">Antenna</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" id="komputer" name="harga[]" value="komputer">
-                    <label for="komputer">Komputer</label><br>
-                </td>
-                <td>
-                    <label for="">Printer</label>
-                </td>
-            </tr>
-        </table>
-        <br>
-        <input type="submit" value="submit">
-        <input type="submit" value="Reset">
+  <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+    <table>
+      <tr>
+        <th> Nama Barang</th>
+        <th>Bonus</th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="barang[]" value="5000000">Laptop </td>
+        <td><label for="">Mouse</label></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="barang[]" value="1200000">Handphone</td>
+        <td><label for="">Handfree</label></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="barang[]" value="2500000">LCD TV</td>
+        <td><label for="">Antenna</label></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="barang[]" value="3000000">Komputer</td>
+        <td><label for="">Printer</label></td>
+      </tr>
 
-    </form>
-    <br>
-    
-    <?php if(isset($_POST["harga"])): ?>
-        <table>
-        <tr>
-            <th>Nama Barang</th>
-            <th>Bonus</th>
-            <th>Harga</th>
-        </tr>
-        <tr>
-            <td>Laptop</td>
-            <td>Mouse</td>
-            <td><?= $_POST["harga"][0]?></td>
-        </tr>
-        <tr>
-            <td>Handphone</td>
-            <td>Handfree</td>
-            <td>1200000</td>
-        </tr>
-        <tr>
-            <td>LCD TV</td>
-            <td>Antenna</td>
-            <td><?= $_POST["harga"][1]?></td>
-        </tr>
-        <tr>
-            <td>Komputer</td>
-            <td>Printer</td>
-            <td><?= $_POST["harga"][2]?></td>
-        </tr>
-        <tr>
-            <th colspan="2">TOTAL</th>
-            <th><?= $_POST["harga"][3]?></th>
-        </tr>
     </table>
-    <?php endif; ?>
-    
+    <br>
+    <input type="submit" value="Submit">
+    <input type="submit" value="Reset">
+  </form>
+  <br>
+  <br>
 
-   
+  <?php if (isset($_POST['barang'])): ?>
+
+    <?php $barang = $_POST['barang'] ?>
+
+
+    <table id="tbl">
+      <tr id="row">
+        <th id="col"> Nama Barang </th>
+        <th id="col"> Bonus </th>
+        <th id="col"> Harga </th>
+      </tr>
+
+      <tr id="row">
+        <td id="col"> Laptop </td>
+        <td id="col"> Mouse </td>
+        <td id="col">
+          <?php echo $barang[0] . "<br>"; ?>
+        </td>
+      </tr>
+
+      <tr id="row">
+        <td id="col"> Handphone </td>
+        <td id="col"> Handfree </td>
+        <td id="col">
+          <?php echo $barang[1] . "<br>"; ?>
+        </td>
+      </tr>
+      <tr id="row">
+        <td id="col"> LCD TV </td>
+        <td id="col"> Antenna </td>
+        <td id="col">
+          <?php echo $barang[2] . "<br>"; ?>
+        </td>
+      </tr>
+      <tr id="row">
+        <td id="col"> Komputer </td>
+        <td id="col"> Printer </td>
+        <td id="col">
+          <?php echo $barang[3] . "<br>"; ?>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2" id="row"> TOTAL </th>
+        <th id="row"> 11700000</th>
+      </tr>
+    </table>
+  <?php else: ?>
+    <?php echo "Tolong ceklis semuanya" ?>
+
+  <?php endif; ?>
+
 </body>
+
+
 </html>
